@@ -1,0 +1,16 @@
+name: github
+version: 0.0.1
+description: |
+  This module provides access to various GitHub API endpoints.
+innerDDLFilePath: "github.ddl"
+innerTranslatorConfigFilePath: "translator-config.yaml"
+
+resultSetScript:
+  scriptFilePath: "GitHubResultSetDelegate.js"
+
+contextVariables:
+  - name: "GITHUB_PAT"
+    sensitive: true
+    failIfMissing: true
+  - name: "GITHUB_ORG"
+    failIfMissing: true    
