@@ -8,8 +8,6 @@ Official ready-to-use module that contains the schema and logic for interacting 
 
 ## Some considerations before usage
 
-## Some considerations before usage
-
 * `JavaScript` client delegates are generated [using our template](https://github.com/kubling-community/javascript-gen-clients) as a starting point, but bear in mind that some of them
 need special adaptations, therefore if you are planning to create your own version of this module, you would need to adapt the client yourself.
 
