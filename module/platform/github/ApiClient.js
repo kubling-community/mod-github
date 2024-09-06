@@ -445,10 +445,10 @@ class ApiClient {
         }
         
         let init = helper.dt().nowMillis();
-        log.debug(`GitHub Request INIT >>> ${init}`);
+        logger.debug(`GitHub Request INIT >>> ${init}`);
         let resp = httpCli.exec(request);
         let end = helper.dt().nowMillis();
-        log.debug(`GitHub Request TOOK >>> ${end - init}ms`);
+        logger.debug(`GitHub Request TOOK >>> ${end - init}ms`);
         if (callback) {
             var err = null;
             var data = null;
