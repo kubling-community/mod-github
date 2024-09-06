@@ -94,7 +94,6 @@ const queryHandlers = {
               tuple.language = key;
               tuple.bytes = data[key];
               resultSet.addRow(JSON.stringify(tuple));
-              print("hello! ddd");
             }
           });
         }
@@ -139,7 +138,6 @@ const queryHandlers = {
 
 }
 
-print('Query received:\n' + queryFilter.json);
 const func = Object.values(queryHandlers)
     .find(f => functionMatches(f, queryFilter.table));
 
