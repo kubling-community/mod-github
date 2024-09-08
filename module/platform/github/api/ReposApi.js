@@ -38,18 +38,18 @@ export default class ReposApi {
   }
 
   /**
-       * List organization repositories
-       * Lists repositories for the specified organization.  **Note:** In order to see the `security_and_analysis` block for a repository you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \"[Managing security managers in your organization](https://docs.github.com/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).\"
-       * @param {String} org The organization name. The name is not case sensitive.
-       * @param {Object} opts Optional parameters
-       * @param {module:model/String} [type = 'all')] Specifies the types of repositories you want returned.
-       * @param {module:model/String} [sort = 'created')] The property to sort the results by.
-       * @param {module:model/String} [direction] The order to sort by. Default: `asc` when using `full_name`, otherwise `desc`.
-       * @param {Number} [perPage = 30)] The number of results per page (max 100). For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"
-       * @param {Number} [page = 1)] The page number of the results to fetch. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"
-       * @param {module:api/ReposApi~reposListForOrgCallback} callback The callback function, accepting three arguments: error, data, response
-       * data is of type: {@link Array.<module:model/MinimalRepository>}
-       */
+   * List organization repositories
+   * Lists repositories for the specified organization.  **Note:** In order to see the `security_and_analysis` block for a repository you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \"[Managing security managers in your organization](https://docs.github.com/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).\"
+   * @param {String} org The organization name. The name is not case sensitive.
+   * @param {Object} opts Optional parameters
+   * @param {module:model/String} [type = 'all')] Specifies the types of repositories you want returned.
+   * @param {module:model/String} [sort = 'created')] The property to sort the results by.
+   * @param {module:model/String} [direction] The order to sort by. Default: `asc` when using `full_name`, otherwise `desc`.
+   * @param {Number} [perPage = 30)] The number of results per page (max 100). For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"
+   * @param {Number} [page = 1)] The page number of the results to fetch. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"
+   * @param {module:api/ReposApi~reposListForOrgCallback} callback The callback function, accepting three arguments: error, data, response
+   * data is of type: {@link Array.<module:model/MinimalRepository>}
+   */
   reposListForOrg(org, opts, callback) {
     opts = opts || {};
     let postBody = null;
@@ -76,7 +76,7 @@ export default class ReposApi {
     let authNames = [];
     let contentTypes = [];
     let accepts = ['application/json'];
-    let returnType = [MinimalRepository];
+    let returnType = ApiClient.requireDeserializationToClass(opts, [MinimalRepository]);
     return this.apiClient.callApi(
       '/orgs/{org}/repos', 'GET',
       pathParams, queryParams, headerParams, formParams, postBody,

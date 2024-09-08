@@ -5,6 +5,7 @@ import ReposApi from "./platform/github/api/ReposApi";
 
 const qfJson = JSON.parse(queryFilter.json);
 var opts = paginationOps({}, qfJson);
+opts.deserialize = false;
 
 const queryHandlers = {
 
