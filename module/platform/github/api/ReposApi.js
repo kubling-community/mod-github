@@ -15,6 +15,7 @@
 import ApiClient from "../ApiClient";
 import Collaborator from '../model/Collaborator';
 import Contributor from '../model/Contributor';
+import MinimalRepository from "../model/MinimalRepository";
 import Release from '../model/Release';
 import ShortBranch from '../model/ShortBranch';
 import Tag from '../model/Tag';
