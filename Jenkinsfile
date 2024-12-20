@@ -16,16 +16,16 @@ pipeline {
                 sh """
                   docker run --rm  \\
                     -v ${env.WORKSPACE}:/modmount  \\
-                    kubling/dbvirt-cli:latest bundle genmod /modmount/module -o /modmount/mymod.zip
+                    kubling/kubling-cli:latest bundle genmod /modmount/module -o /modmount/mymod.zip
                 """
 
                 sh """
                   docker run --rm  \\
                     -v ${env.WORKSPACE}:/modmount  \\
-                    kubling/dbvirt-cli:latest bundle pubmod /modmount/mymod.zip -t $REPO_TOKEN
+                    kubling/kubling-cli:latest bundle pubmod /modmount/mymod.zip -t $REPO_TOKEN
                 """
 
-                sh """ docker image rm kubling/dbvirt-cli:latest """
+                sh """ docker image rm kubling/kubling-cli:latest """
 
             }
         }

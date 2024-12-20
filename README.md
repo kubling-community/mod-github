@@ -19,4 +19,4 @@ Official ready-to-use module that contains the schema and logic for interacting 
 ```bash
 docker run --rm \
     -v ./:/modmount \
-    kubling/dbvirt-cli:latest bundle genmod /modmount/module -o /modmount/mymod.zip
+    kubling/kubling-cli:latest bundle genmod /modmount/module -o /modmount/mymod.zip
