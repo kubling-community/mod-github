@@ -4,15 +4,19 @@
 
 Official ready-to-use module that contains the schema and logic for interacting with GitHub APIs.
 
-> **_NOTE:_**  This is still under development and currently does not support CUD operations. 
+> **_NOTE:_** This module is still under development and does not currently support CUD operations.
 
-## Some considerations before usage
+## Considerations Before Usage
 
-## Some considerations before usage
+- **JavaScript Client Delegates:** These are generated [using our template](https://github.com/kubling-community/javascript-gen-clients) as a starting point. However, some require special adaptations. If you plan to create your own version of this module, be prepared to adapt the client manually and/or the template.
 
-* `JavaScript` client delegates are generated [using our template](https://github.com/kubling-community/javascript-gen-clients) as a starting point, but bear in mind that some of them
-need special adaptations, therefore if you are planning to create your own version of this module, you would need to adapt the client yourself.
+- **Schema Limitations:** If this module's schema does not contain a specific `TABLE`, it does not necessarily mean that the entity or endpoint is unsupported. Please create an issue or open a PR if you identify any gaps.
 
-* If this module's schema does not contain a specific `TABLE`, it does not mean that the entity or endpoint is not supported. In case you detect that, please create an issue or open a PR.
+- **Build and Publish Pipeline:** Currently, building and publishing runs on private infrastructure, but migration to GitHub Actions is planned. The pipeline consists of simple `sh` tasks running the CLI in Docker. This straightforward approach ensures clarity and adaptability for different CICD platforms, should you wish to fork and maintain your own module.
 
-* Building and Publishing still run on our private infra, however we will soon migrate to GitHub Actions. We kept the pipeline as simple as possible, with just `sh` tasks running the cli in Docker form, just in case you want to fork and have your own Module based on this one, so steps are clear and easily adaptable to a different CICD platform.  
+## Building Locally
+
+```bash
+docker run --rm \
+    -v ./:/modmount \
+    kubling/dbvirt-cli:latest bundle genmod /modmount/module -o /modmount/mymod.zip
